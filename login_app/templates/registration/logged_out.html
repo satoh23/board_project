@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ログアウト画面
+{% endblock title %}
+
+{% block content %}
+    <h1>ログアウト画面</h1>
+    <p>ログアウトしました</p>
+    <p><a href="{% url 'board_list' %}">掲示板へ戻る</a></p>
+{% endblock content %}

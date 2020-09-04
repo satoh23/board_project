@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>作成が完了しました</h1>
+<a href="{% url 'login' %}"><button type="button" class="btn btn-outline-dark">ログイン画面へ</button></a>
+<a href="{% url 'board_list' %}"><button type="button" class="btn btn-outline-dark">掲示板に戻る</button></a>
+{% endblock content %}

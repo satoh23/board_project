@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ログイン画面
+{% endblock title %}
+
+{% block content %}
+    <h1>ユーザーログイン画面</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">ログイン</button>
+    </form>
+{% endblock content %}

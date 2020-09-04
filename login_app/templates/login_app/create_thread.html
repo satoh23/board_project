@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" action="{% url 'create_thread' %}">
+    {% csrf_token %}
+    <p hidden>{{ form.author }}</p>
+    <p>作成者:{{ name }}</p>
+    <p>{{ form.title }}</p>
+    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">作成</button>
+</form>
+{% endblock content %}

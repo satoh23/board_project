@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+スレッド一覧
+{% endblock title %}
+
+{% block content %}
+
+<ol>
+    {% for item in all_item %}
+    <p></p>
+    <li>
+        <a href="{% url 'board' pk=item.id %}"><h4>{{ item.title }} / 作成者：{{ item.author }}</h4></a>
+    </li>
+    <p></p>
+    {% endfor %}
+</ol>
+
+{% endblock content %} 

@@ -1,0 +1,27 @@
+version: '3'
+services: 
+    web:
+        container_name: anonymous_web
+        build: .
+        command: python3 manage.py runserver 0.0.0.0:8000
+        working_dir: /anonymous_pro/
+        ports: 
+            - "10000:8000"
+        volumes: 
+            - .:/anonymous_pro/
+        depends_on: 
+            - db
+    db:
+        container_name: anonymous_db
+        image: mysql:5.7
+        restart: always
+        environment: 
+            MYSQL_DATABASE: anonymous_db
+            MYSQL_USER: root
+            MYSQL_PASSWORD: Tetsuya2525.
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        volumes: 
+            - ./mysql:/var/lib/mysql
+            - ./custom:/etc/mysql/conf.d
+        ports: 
+            - "33306:3306"

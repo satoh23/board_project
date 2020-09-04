@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% for item in thread %}
+{{ item.title }}
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+{% for item in thread %}
+<ul>
+    <li class="">
+        <h1 align="center">{{ item.title }}</h1>
+        <h5 align="right">作成者：{{ author_name }}</h5>
+        <h5 align="right">作成日：{{ item.created_at }}</h5>
+    </li>
+</ul>
+{% endfor %}
+<p>---------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+
+<ol class="">
+    {% for item in inf %}
+    <li class="">
+        <p><font color="#00bfff"><b>{{ item.nickname }}</b></font> / {{ item.posted_at }}</p>
+        <p>{{ item.text }}</p>
+    </li>
+    {% endfor %}
+</ol>
+
+<p>-------------------------------------------------------</p>
+<p><b>{{ message }}</b></p>
+<form method="POST">
+    {% csrf_token %}
+    <p hidden>{{ form.thread_id }}{{ form.nickname }}</p>
+    <p>名前：{{ name }}</p>
+    <p>本文：{{ form.text }}</p>
+    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">書き込む</button>
+</form>
+{% endblock %}
