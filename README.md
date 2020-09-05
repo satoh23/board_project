@@ -24,6 +24,7 @@ board_projectをpullした後、board_projectディレクトリ内に移動し�
 <p>$ docker-compose run web python3 manage.py makemigrations login_app</p>
 <p>$ docker-compose run web python3 manage.py migrate</p>
 します。
+
 ## Usage
 まずboard_projectディレクトリ内で
 <p>$ docker-compose up -d</p>
