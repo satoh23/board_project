@@ -41,5 +41,5 @@ board_projectをpullした後、anonumous_boardディレクトリ内に移動し
 <p>また、スレッド名をクリックするとスレッドに移動することができます。</p>
 
 その他確認が完了したら
-<p>docker-compose down</p>
+<p>$ docker-compose down</p>
  でコンテナを終了してください。
