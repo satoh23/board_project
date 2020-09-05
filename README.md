@@ -20,13 +20,13 @@ board_project
 こんな感じです。
 
 ## Install
-board_projectをpullした後、board_projectディレクトリ内に移動して
+board_projectをpullした後、anonumous_boardディレクトリ内に移動して
 <p>$ docker-compose run web python3 manage.py makemigrations login_app</p>
 <p>$ docker-compose run web python3 manage.py migrate</p>
 します。
 
 ## Usage
-まずboard_projectディレクトリ内で
+まずanonumous_boardディレクトリ内で
 <p>$ docker-compose up -d</p>
 をします。その後「http://localhost:10000」に移動します。
 <img width="1667" alt="スクリーンショット 2020-09-05 17 44 45" src="https://user-images.githubusercontent.com/55681554/92301578-e3dd6f80-ef9f-11ea-98f2-042a791f84b0.png">
