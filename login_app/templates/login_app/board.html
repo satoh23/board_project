@@ -19,10 +19,12 @@
 <p>---------------------------------------------------------------------------------------------------------------------------------------------------------</p>
 
 <ol class="">
-    {% for item in inf %}
+    {% for item in writing_inf %}
     <li class="">
-        <p><font color="#00bfff"><b>{{ item.nickname }}</b></font> / {{ item.posted_at }}</p>
+        <p><font color="#00bfff"><b>{{ item.nickname }}</b></font> / {{ item.posted_at }} / <a data-toggle="collapse" href="#collapseExample{{ item.id }}" aria-expanded="false" aria-controls="collapseExample">返信する</a></p>
         <p>{{ item.text }}</p>
+        <p><b>{{ message }}</b></p>
+        <div class="collapse" id="collapseExample{{ item.id }}"><iframe src="{% url 'response' res_id=item.id %}" width="600" height="300"></iframe></div>
     </li>
     {% endfor %}
 </ol>
@@ -34,6 +36,8 @@
     <p hidden>{{ form.thread_id }}{{ form.nickname }}</p>
     <p>名前：{{ name }}</p>
     <p>本文：{{ form.text }}</p>
-    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">書き込む</button>
+    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" name="writing_btn">書き込む</button>
 </form>
+
 {% endblock %}
+

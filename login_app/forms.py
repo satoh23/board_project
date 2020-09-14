@@ -13,6 +13,18 @@ class PostsForm(forms.ModelForm):
         }
         widgets = {'text':forms.Textarea(attrs={'placeholder':'本文(300字以内)'}),'nickname':forms.TextInput(attrs={'placeholder':'名前(省略不可)'})}
 
+class ResponseForm(forms.ModelForm):
+    class Meta:
+        model = Posts
+        fields = ('response_id', 'nickname', 'text')
+        labels = {
+            'response_id': 'id',
+            'nickname': '名前',
+            'text': '本文',
+        }
+        widgets = {'text':forms.TextInput(attrs={'placeholder':'本文(300字以内)'})}
+
+
 class ThreadCreateForm(forms.ModelForm):
     class Meta:
         model = Thread

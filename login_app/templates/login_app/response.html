@@ -1,0 +1,19 @@
+
+<p><b>{{ message }}</b></p>
+<form method="POST">
+    {% csrf_token %}
+    <p hidden>{{ res_form.response_id }}{{ res_form.nickname }}</p>
+    <p>名前：{{ name }}</p>
+    <p>本文：{{ res_form.text }}
+    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" name="response_btn">返信</button></p>
+</form>
+
+<ol class="">
+    {% for item in res_inf %}
+    <li class="">
+        <p><font color="#00bfff"><b>{{ item.nickname }}</b></font> / {{ item.posted_at }}</p>
+        <p>{{ item.text }}</p>
+        <p><b>{{ message }}</b></p>
+    </li>
+    {% endfor %}
+</ol>

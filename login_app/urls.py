@@ -9,4 +9,5 @@ urlpatterns = [
     path('after_create_user/', views.after_create_user, name='after_create_user'),
     path('create_thread/', views.create_thread, name='create_thread'),
     path('board/<int:pk>/', views.board, name='board'),
+    path('response/<int:res_id>/', views.response, name='response'),
 ]

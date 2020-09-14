@@ -26,5 +26,7 @@ class Posts(models.Model):
     nickname = models.CharField(verbose_name='名前', max_length=15, null=True, default="名無しさん")
     text = models.CharField(verbose_name='本文', max_length=300)
     posted_at = models.DateTimeField(verbose_name='投稿日', default=timezone.now)
+    response_id = models.PositiveIntegerField(null=True, blank=True,)
     def __str__(self):
-        return str(self.thread_id) + ". " + str(self.text)
+        return str(self.thread_id) + ". " + str(self.text)+ " 返信id="+str(self.response_id) + " ID="+ str(self.id)
+
