@@ -59,20 +59,8 @@ def board(request, pk):
         else:
             params['message'] = '再入力してください'
             params['form'] = form
-
-#    elif 'response_btn' in request.POST:
-#        res_form = ResponseForm(request.POST)
-#        if res_form.is_valid():
-#            posts = res_form.save(commit = False)
-#            posts.save()
-#            return redirect(url)
-#        else:
-#            params['message'] = '再入力してください'
-#            params['res_form'] = res_form
     else:
         params['form'] = PostsForm(initial={'thread_id': pk, 'nickname': name})
- #       params['res_form'] = ResponseForm(initial={'response_id': res_id, 'nickname': name})
-
 
     params.update(author_name=author_name, name=name)
     return render(request, 'login_app/board.html', params)
