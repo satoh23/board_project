@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
-# Create your models here.
 
+#ユーザー情報
 class CustomUser(AbstractUser):
     nickname = models.CharField(max_length=20, null=True)
 
-
+#スレッド情報
 class Thread(models.Model):
     class Meta():
         db_table = 'thread'
@@ -17,7 +17,7 @@ class Thread(models.Model):
     def __str__(self):
         return '(' + str(self.id) + ') ' + str(self.title) + " | " + str(self.created_at)
 
-
+#書き込み情報。返信時のみresponse_idに値が入る。値はこのテーブルの主キー。
 class Posts(models.Model):    
     class Meta():
         db_table = 'posts'

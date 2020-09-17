@@ -2,6 +2,7 @@ from django import forms
 from .models import Posts, CustomUser, Thread
 from django.contrib.auth.forms import UserCreationForm
 
+#書き込みform
 class PostsForm(forms.ModelForm):
     class Meta:
         model = Posts
@@ -13,6 +14,7 @@ class PostsForm(forms.ModelForm):
         }
         widgets = {'text':forms.Textarea(attrs={'placeholder':'本文(300字以内)'}),'nickname':forms.TextInput(attrs={'placeholder':'名前(省略不可)'})}
 
+#返信form
 class ResponseForm(forms.ModelForm):
     class Meta:
         model = Posts
@@ -24,7 +26,7 @@ class ResponseForm(forms.ModelForm):
         }
         widgets = {'text':forms.TextInput(attrs={'placeholder':'本文(300字以内)'})}
 
-
+#スレッド作成form
 class ThreadCreateForm(forms.ModelForm):
     class Meta:
         model = Thread
@@ -35,6 +37,7 @@ class ThreadCreateForm(forms.ModelForm):
         }
         widgets = {'title':forms.TextInput(attrs={'placeholder':'30字以内'})}
 
+#ユーザー作成form
 class UesrCreateForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

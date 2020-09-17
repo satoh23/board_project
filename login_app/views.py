@@ -13,6 +13,7 @@ def rule(request):
 def after_create_user(request):
     return render(request, 'login_app/after_create_user.html', {})
 
+#スレッド作成view。ログイン中のみ可
 @login_required
 def create_thread(request):
     names = CustomUser.objects.filter(username=request.user).values_list('nickname')
@@ -33,6 +34,7 @@ def create_thread(request):
 
     return render(request, 'login_app/create_thread.html', params)
 
+#スレッドの表示、書き込みのview。pk=Threadの主キー
 def board(request, pk):
     thread = Thread.objects.filter(id = pk)
     writing_inf = Posts.objects.filter(thread_id__id = pk, response_id__isnull=True)
@@ -65,6 +67,7 @@ def board(request, pk):
     params.update(author_name=author_name, name=name)
     return render(request, 'login_app/board.html', params)
 
+#書き込みへの返信。iframeを使ってスレッドに表示する。res_id=Postsの主キー。
 @xframe_options_exempt
 def response(request,res_id):
     res_inf = Posts.objects.filter(response_id=res_id)
@@ -93,7 +96,7 @@ def response(request,res_id):
     params['name']=name
     return render(request, 'login_app/response.html', params)
 
-
+#掲示板の一覧表示。
 def board_list(request):
     params = {'message': '', 'form': None}
     all_item = Thread.objects.all
@@ -101,7 +104,7 @@ def board_list(request):
 
     return render(request, 'login_app/board_list.html', params)
 
-
+#ユーザー作成。
 class Create_user(CreateView):
     def post(self, request, *args, **kwargs):
         form = UesrCreateForm(data=request.POST)
